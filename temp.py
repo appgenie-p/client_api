@@ -1,13 +1,18 @@
+from pprint import pprint as pp
+
 import requests
 
-# Search GitHub's repositories for requests
-response = requests.get(
-    'https://api.github.com/search/repositories',
-    params={'q': 'requests+language:python'},
-)
+chat_id = '283297550'
+token = '5623317177:AAHyQusIxfra93r9rrKdWZCP_MKDc5hL9OA'
 
-# Inspect some attributes of the `requests` repository
-json_response = response.json()
-repository = json_response['items'][0]
-print(f'Repository name: {repository["name"]}')  # Python 3.6+
-print(f'Repository description: {repository["description"]}')  # Python 3.6+
+text = 'Тестовое сообщение от чат-бота'
+
+# Отправка ботом сообщения пользователю
+# send_msg_url = (f'https://api.telegram.org/bot{token}/sendMessage?chat_id='
+#                 f'{chat_id}&text={text}')
+# response = requests.get(send_msg_url)
+
+# Запрос сообщений, направленных боту
+polling_req = f'https://api.telegram.org/bot{token}/getUpdates'
+polling_response = requests.get(polling_req)
+pp(polling_response.json())
