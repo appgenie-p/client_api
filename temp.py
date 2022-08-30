@@ -2,8 +2,9 @@ from pprint import pprint as pp
 
 import requests
 
-chat_id = '283297550'
-token = '5623317177:AAHyQusIxfra93r9rrKdWZCP_MKDc5hL9OA'
+from data import chat_id_me, token
+
+chat_id = chat_id_me
 
 text = 'Тестовое сообщение от чат-бота'
 
@@ -13,6 +14,7 @@ text = 'Тестовое сообщение от чат-бота'
 # response = requests.get(send_msg_url)
 
 # Запрос сообщений, направленных боту
+
 polling_req = f'https://api.telegram.org/bot{token}/getUpdates'
 polling_response = requests.get(polling_req)
 pp(polling_response.json())
