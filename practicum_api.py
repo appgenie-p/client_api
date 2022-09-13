@@ -17,11 +17,11 @@ now = datetime.datetime.now()
 now_unix = int(time.mktime(now.timetuple()))
 then = now - datetime.timedelta(days=60)
 then_unix = int(time.mktime(then.timetuple()))
-# 1549962000
 
 url = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
 headers = {'Authorization': f'OAuth {token_practicum}'}
-payload = {'from_date': then_unix}
+payload = {'from_date': 0}
 
 homework_statuses = requests.get(url, headers=headers, params=payload)
-pprint(homework_statuses.json())
+answer = homework_statuses.json()
+pass

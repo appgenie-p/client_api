@@ -2,11 +2,11 @@ import logging
 
 from logging.handlers import RotatingFileHandler
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename='program.log', 
-    format='%(asctime)s, %(levelname)s, %(message)s, %(name)s'
-)
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     filename='program.log',
+#     format='%(asctime)s, %(levelname)s, %(message)s, %(name)s'
+# )
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
